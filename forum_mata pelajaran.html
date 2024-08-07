@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Mata pelajaran</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="m-3">
+  <h1>Form Mata pelajaran</h1>
+
+  <form class="mb-3">
+    <div class="mb-3">
+      <label class="form-label">Guru</label>
+      <input type="date" class="form-control" id="input-guru">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Hari</label>
+      <input type="text" class="form-control" id="input-hari">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Jam.ke</label>
+      <input type="text" class="form-control" id="input-jamKe">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kelas</label>
+      <input type="text" class="form-control" id="input-kelas">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Mapel</label>
+      <input type="text" class="form-control" id="input-mapel">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Waktu</label>
+      <input type="text" class="form-control" id="input-waktu">
+    </div>
+    <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
+  </form>
+    <div class="d-flex justify-content-center">
+  
+  </div>
+
+  <script type="module">
+    import { tambahMataPelajaran } from './main.js';
+
+    let tombolGuru = document.getElementById('tombol-guru');
+    let elemenHari = document.getElementById('input-hari');
+    let elemenJam.ke = document.getElementById('input-jamKe');
+    let elemenKelas = document.getElementById('input-kelas');
+    let elemenMapel = document.getElementById('input-mapel');
+    let elemenWaktu = document.getElementById('input-waktu');
+    
+    tombolTambah.addEventListener('click', async function(e) {
+      e.preventDefault();
+      await tambahMataPelajaran(elemenGuru.value, elemenHari.value, elemenJamKe.value, elemenKelas.value, elemenMapel.value, elemenWaktu.value,);
+      window.location.href = 'index.html'
+    })
+  </script>
+  <footer class="py-3 bg-dark-subtle mt-auto">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">&copy; </p>
+  </footer>
+
+</body>
+
+
+  

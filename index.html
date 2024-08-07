@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>mata pelajaran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <h1>habibatul aulia</h1>
+  <h1>Mata pelajaran</h1>
+  
+  
+
+
+  <table class="table" id="daftar-absensi">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Guru</th>
+        <th scope="col">Hari</th>
+        <th scope="col">Jam.ke</th>
+        <th scope="col">Kelas</th>
+        <th scope="col">Mapel</th>
+        <th scope="col">Waktu</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  
+  <div class="d-flex justify-content-center">
+    <img src="loader.gif" style="width: 15em; display: block" id="loader">
+  </div>
+  
+   <div class="d-flex justify-content-center">
+  </div>
+
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .stack-up {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  </style>
+
+  <script type="module">
+    import { ambilDaftarMataPelajaran, formatAngka, hapusMataPelajaran } from './main.js';
+    
+  $(document).ready(async function() {
+      let elemenDaftar = $("#daftar-matapelajaran > tbody");
+      let daftarMataPelajaran = await ambilDaftarMataPelajaran();
+      let nomor = 1;
+
+
+
+      daftarMataPelajaran.forEach((data) => {
+        elemenDaftar.append(
+          '<tr>' +
+          '<th>' + nomor + '</th>' +
+          '<td>' + data.guru + '</td>' +
+          '<td>' + data.hari + '</td>' +
+          '<td>' + data.jamKe + '</td>' +
+          '<td>' + data.kelas + '</td>' + 
+          '<td>' + data.mapel + '</td>' + 
+          '<td>' + data.waktu + '</td>' +
+          '<td class="stack-up">' +
+          ' <a href="#" class="btn btn-warning link-ubah"  data="' +
+          data.id +
+          '">ubah</a> ' +
+          ' <button class="btn btn-danger tombol-hapus" data="' +
+          data.id +
+          '">Hapus</button>' + '</td>' +
+          '</tr>'
+        );
+        nomor = nomor + 1;
+      });
+
+      $('.tombol-hapus').click(async function() {
+        await hapusMataPelajaran($(this).attr('data'));
+        location.reload();
+      })
+
+      $('.link-ubah').click(async function() {
+        window.location.replace('ubah-matapelajaran.html?docId=' + $(this).attr('data'));
+      })
+
+      $('#loader').hide();
+
+    });
+  </script>
+   <footer  </span> 
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
+      <li class="nav-item"><a href="forum-matapelajaran.html" id="link-login-penjual" class="nav-link px-2 text-body-secondary">tambah data</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">&copy; </p>
+  </footer>
+</body>
+
+</html>
+
+
+
+  
+ 
