@@ -38,7 +38,7 @@ export async function ambilDaftarMataPelajaran() {
       jamKe: dok.data().jamKe,
       kelas: dok.data().kelas,
       mapel: dok.data().mapel,
-      waktu: dok.data().waktu,
+      waktu: dok.data().waktu
 
     });
   });
@@ -60,7 +60,7 @@ export async function tambahMataPelajaran(guru, hari, jamKe, kelas, mapel, waktu
       jamKe: jamKe,
       kelas: kelas,
       mapel: mapel,
-      waktu: waktu,
+      waktu: waktu
     });
     console.log('berhasil menembah ' + dokRef.id);
   } catch (e) {
@@ -72,14 +72,14 @@ export async function hapusMataPelajaran(docId) {
   await deleteDoc(doc(db, "matapelajaran", docId));
 }
 
-export async function ubahMataPelajaran(docId, guru, hari, jamKe, kelas, mapel, waktu,) {
+export async function ubahMataPelajaran(docId, guru, hari, jamKe, kelas, mapel, waktu) {
   await updateDoc(doc(db, "matapelajaran", docId), {
     guru: guru,
     hari: hari,
     jamKe: jamKe,
     kelas: kelas,
     mapel: mapel,
-    waktu: waktu,
+    waktu: waktu
   });
 }
 
